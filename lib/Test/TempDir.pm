@@ -131,9 +131,8 @@ L<File::Temp>, L<Directory::Scratch>, L<Path::Class>
 
 =head1 VERSION CONTROL
 
-This module is maintained using Darcs. You can get the latest version from
-L<http://nothingmuch.woobling.org/code>, and use C<darcs send> to commit
-changes.
+This module is maintained using Git. You can get the latest version from
+L<git://github.com/nothingmuch/test-tempdir.git>.
 
 =head1 AUTHOR
 
