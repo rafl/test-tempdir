@@ -1,5 +1,3 @@
-#!/usr/bin/perl
-
 package Test::TempDir::Factory;
 use Moose;
 
