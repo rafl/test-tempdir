@@ -22,7 +22,7 @@ has lock => (
 );
 
 has cleanup_policy => (
-	isa => enum( __PACKAGE__ . "::CleanupPolicy", qw(success always never) ),
+	isa => enum([ qw(success always never) ]),
 	is  => "rw",
 	default => "success",
 );

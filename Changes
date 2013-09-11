@@ -1,3 +1,6 @@
+
+  * fixed enum declaration, as per deprecations in Moose-2.1100
+
 0.05  Tue, 11 Aug 2009 01:57:18 +0200
   * Look! A changelog! This wasn't too hard, was it? :-)
   * Allow setting the default for Test::TempDir::Factory's use_subdir using the
