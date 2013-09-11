@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More 0.88;
 
 use Path::Class;
 use File::Temp qw(tempdir);
@@ -15,8 +15,6 @@ BEGIN {
 	plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
 	$tmp = dir( tempdir( CLEANUP => 1 ) );
 	plan skip_all => "couldn't create temp dir" unless -d $tmp && -w $tmp;
-
-	plan 'no_plan';
 }
 
 use ok 'Test::TempDir::Handle';
@@ -61,3 +59,4 @@ $h->cleanup;
 
 ok( not(-d $tmp), "dir removed by delete" );
 
+done_testing;
