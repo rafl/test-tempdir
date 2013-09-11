@@ -1,8 +1,11 @@
+Revision history for {{$dist->name}}
 
-  * fixed enum declaration, as per deprecations in Moose-2.1100
+{{$NEXT}}
+  - fixed enum declaration, as per deprecations in Moose-2.1100
+  - converted to Dist::Zilla
 
-0.05  Tue, 11 Aug 2009 01:57:18 +0200
-  * Look! A changelog! This wasn't too hard, was it? :-)
-  * Allow setting the default for Test::TempDir::Factory's use_subdir using the
+0.05   2009-08-11 01:57:18 +0200
+  - Look! A changelog! This wasn't too hard, was it? :-)
+  - Allow setting the default for Test::TempDir::Factory's use_subdir using the
     environment variable TEST_TEMPDIR_USE_SUBDIR.
-  * Depend on a Moose version where delegations to class names work.
+  - Depend on a Moose version where delegations to class names work.
