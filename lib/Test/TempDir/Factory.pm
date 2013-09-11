@@ -10,7 +10,7 @@ use MooseX::Types::Path::Class qw(Dir);
 
 use Test::TempDir::Handle;
 
-use namespace::clean -except => [qw(meta)];
+use namespace::autoclean;
 
 has lock => (
 	isa => "Bool",

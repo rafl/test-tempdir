@@ -4,7 +4,7 @@ use Moose;
 use MooseX::Types::Path::Class qw(Dir);
 use Moose::Util::TypeConstraints;
 
-use namespace::clean -except => [qw(meta)];
+use namespace::autoclean;
 
 has dir => (
 	isa => Dir,
