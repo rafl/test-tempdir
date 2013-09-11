@@ -8,7 +8,7 @@ BEGIN {
 	plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
 }
 
-use ok 'Test::TempDir' => qw(temp_root scratch tempfile);
+use ok 'Test::TempDir' => qw(temp_root tempfile);
 
 isa_ok( my $root = temp_root, "Path::Class::Dir" );
 
@@ -28,12 +28,5 @@ ok( -f $file, "file exists" );
 
 ok( $root->contains($file), "root contains file" );
 
-SKIP: {
-	skip "no Directory::Scratch", 2 unless eval { require Directory::Scratch };
-
-	isa_ok( my $s = scratch(), "Directory::Scratch" );
-
-	ok( $root->contains($s->base), "root contains scratch dir" );
-}
 
 done_testing;
