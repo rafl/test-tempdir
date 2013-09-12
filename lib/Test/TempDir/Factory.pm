@@ -225,35 +225,35 @@ fallback logic.
 
 =over 4
 
-=item lock
+=item C<lock>
 
 Whether or not to enable locking.
 
 Defaults to true.
 
-=item lock_opts
+=item C<lock_opts>
 
 A hash reference to pass to L<File::NFSLock>.
 
 Defaults to C<NONBLOCKING>
 
-=item lock_attempts
+=item C<lock_attempts>
 
-How many times to try to create and lock a dir.
+How many times to try to create and lock a directory.
 
 Defaults to 2.
 
-=item dir_name
+=item C<dir_name>
 
 The directory under C<t_dir> to use.
 
 Defaults to C<tmp>
 
-=item t_dir
+=item C<t_dir>
 
 Defaults to C<t>
 
-=item use_subdir
+=item C<use_subdir>
 
 Whether to always use a temporary subdirectory under the temporary root.
 
@@ -263,15 +263,15 @@ When disabled, C<t/tmp> will be used directly as C<temp_root>.
 
 Defaults to true.
 
-=item subdir_template
+=item C<subdir_template>
 
 The template to pass to C<tempdir>. Defaults to C<File::Temp::TEMPXXX>.
 
-=item handle_class
+=item C<handle_class>
 
 Defaults to L<Test::TempDir::Handle>.
 
-=item verbose
+=item C<verbose>
 
 Whether or not to C<carp> diagnostics when falling back.
 
@@ -285,7 +285,7 @@ logger.
 
 =over 4
 
-=item create
+=item C<create>
 
 Create a L<Test::TempDir::Handle> object with a proper C<dir> attribute.
 

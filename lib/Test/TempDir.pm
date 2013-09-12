@@ -72,6 +72,8 @@ The differences between using this and using L<File::Temp> are:
 
 =item *
 
+=for stopwords creatable
+
 If C<t/tmp> is available (writable, creatable, etc) it's preferred over
 C<$ENV{TMPDIR}> etc. Otherwise a temporary directory will be used.
 
@@ -79,7 +81,7 @@ This is C<temp_root>
 
 =item *
 
-Lockfiles are used on C<t/tmp>, to prevent race conditions when running under a
+Lock files are used on C<t/tmp>, to prevent race conditions when running under a
 parallel test harness.
 
 =item *
@@ -88,7 +90,7 @@ The C<temp_root> is cleaned at the end of a test run, but not if tests failed.
 
 =item *
 
-C<temp_root> is emptied at the begining of a test run unconditionally.
+C<temp_root> is emptied at the beginning of a test run unconditionally.
 
 =item *
 
@@ -101,20 +103,22 @@ within C<temp_root>, in order to aid in debugging of failed tests.
 
 =over 4
 
-=item temp_root
+=item C<temp_root>
 
 The root of the temporary stuff.
 
-=item tempfile
+=item C<tempfile>
 
-=item tempdir
+=item C<tempdir>
 
 Wrappers for the L<File::Temp> functions of the same name.
+
+=for stopwords overridable
 
 The default options are changed to use C<temp_root> for C<DIR> and disable
 C<CLEANUP>, but these are overridable.
 
-=item scrach
+=item C<scratch>
 
 Loads L<Directory::Scratch> and instantiates a new one, with the same default
 options as C<tempfile> and C<tempdir>.
