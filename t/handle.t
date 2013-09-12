@@ -5,7 +5,7 @@ use Test::More 0.88;
 
 use Path::Class;
 use File::Temp qw(tempdir);
-use File::Path;
+use File::Path 2.04;    # for reliable keep_root
 
 my $tmp;
 
