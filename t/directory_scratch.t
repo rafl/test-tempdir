@@ -8,9 +8,9 @@ BEGIN {
     plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
 }
 
-use ok 'Test::TempDir' => qw(temp_root scratch);
-
 use Test::Requires 'Directory::Scratch';
+
+use ok 'Test::TempDir' => qw(temp_root scratch);
 
 my $root = temp_root;
 

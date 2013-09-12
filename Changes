@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - fixed test error from last release when Directory::Scratch is not
+    installed
 
 0.06      2013-09-12 00:22:49Z (Karen Etheridge)
   - fixed enum declaration, as per deprecations in Moose-2.1100
