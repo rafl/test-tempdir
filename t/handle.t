@@ -10,11 +10,11 @@ use File::Path 2.04;    # for reliable keep_root
 my $tmp;
 
 BEGIN {
-	use File::Spec;
+    use File::Spec;
 
-	plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
-	$tmp = dir( tempdir( CLEANUP => 1 ) );
-	plan skip_all => "couldn't create temp dir" unless -d $tmp && -w $tmp;
+    plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
+    $tmp = dir( tempdir( CLEANUP => 1 ) );
+    plan skip_all => "couldn't create temp dir" unless -d $tmp && -w $tmp;
 }
 
 use ok 'Test::TempDir::Handle';

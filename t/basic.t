@@ -4,8 +4,8 @@ use warnings;
 use Test::More 0.88;
 
 BEGIN {
-	use File::Spec;
-	plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
+    use File::Spec;
+    plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
 }
 
 use ok 'Test::TempDir' => qw(temp_root tempfile);

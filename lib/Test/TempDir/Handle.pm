@@ -7,100 +7,100 @@ use Moose::Util::TypeConstraints;
 use namespace::autoclean;
 
 has dir => (
-	isa => Dir,
-	is  => "ro",
-	handles => [qw(file subdir rmtree)],
+    isa => Dir,
+    is  => "ro",
+    handles => [qw(file subdir rmtree)],
 );
 
 has lock => (
-	isa => "File::NFSLock",
-	is  => "ro",
-	predicate => "has_lock",
-	clearer   => "clear_lock",
+    isa => "File::NFSLock",
+    is  => "ro",
+    predicate => "has_lock",
+    clearer   => "clear_lock",
 );
 
 has cleanup_policy => (
-	isa => enum([ qw(success always never) ]),
-	is  => "rw",
-	default => "success",
+    isa => enum([ qw(success always never) ]),
+    is  => "rw",
+    default => "success",
 );
 
 has test_builder => (
-	isa => "Test::Builder",
-	is  => "rw",
-	lazy_build => 1,
-	handles => { test_summary => "summary" },
+    isa => "Test::Builder",
+    is  => "rw",
+    lazy_build => 1,
+    handles => { test_summary => "summary" },
 );
 
 sub _build_test_builder {
-	require Test::Builder;
-	Test::Builder->new;
+    require Test::Builder;
+    Test::Builder->new;
 }
 
 sub failing_tests {
-	my $self = shift;
-	grep { !$_ } $self->test_summary;
+    my $self = shift;
+    grep { !$_ } $self->test_summary;
 }
 
 sub empty {
-	my $self = shift;
-	return unless -d $self->dir;
-	$self->rmtree({ keep_root => 1 });
+    my $self = shift;
+    return unless -d $self->dir;
+    $self->rmtree({ keep_root => 1 });
 }
 
 sub delete {
-	my $self = shift;
-	return unless -d $self->dir;
-	$self->rmtree({ keep_root => 0 });
-	$self->dir->parent->remove; # rmdir, safe, and we don't care about errors
+    my $self = shift;
+    return unless -d $self->dir;
+    $self->rmtree({ keep_root => 0 });
+    $self->dir->parent->remove; # rmdir, safe, and we don't care about errors
 }
 
 sub release_lock {
-	my $self = shift;
+    my $self = shift;
 
-	$self->clear_lock;
+    $self->clear_lock;
 
-	# FIXME always unlock? or allow people to keep the locks around by enrefing them?
+    # FIXME always unlock? or allow people to keep the locks around by enrefing them?
 
-	#if ( $self->has_lock ) {
-	#	$self->lock->unlock;
-	#	$self->clear_lock;
-	#}
+    #if ( $self->has_lock ) {
+    #    $self->lock->unlock;
+    #    $self->clear_lock;
+    #}
 }
 
 sub DEMOLISH {
-	my $self = shift;
-	$self->cleanup;
+    my $self = shift;
+    $self->cleanup;
 }
 
 sub cleanup {
-	my ( $self, @args ) = @_;
+    my ( $self, @args ) = @_;
 
-	$self->release_lock;
+    $self->release_lock;
 
-	my $policy = "cleanup_policy_" . $self->cleanup_policy;
+    my $policy = "cleanup_policy_" . $self->cleanup_policy;
 
-	$self->can($policy) or die "Unknown cleanup policy " . $self->cleanup_policy;
+    $self->can($policy) or die "Unknown cleanup policy " . $self->cleanup_policy;
 
-	$self->$policy(@args);
+    $self->$policy(@args);
 }
 
 sub cleanup_policy_never {}
 
 sub cleanup_policy_always {
-	my ( $self, @args ) = @_;
+    my ( $self, @args ) = @_;
 
-	$self->delete;
+    $self->delete;
 }
 
 sub cleanup_policy_success {
-	my ( $self, @args ) = @_;
+    my ( $self, @args ) = @_;
 
-	if ( $self->failing_tests ) {
-		$self->test_builder->diag("Leaving temporary directory '" . $self->dir . "' due to test fails");
-	} else {
-		$self->cleanup_policy_always(@args);
-	}
+    if ( $self->failing_tests ) {
+        $self->test_builder->diag("Leaving temporary directory '" . $self->dir . "' due to test fails");
+    } else {
+        $self->cleanup_policy_always(@args);
+    }
 }
 
 __PACKAGE__
@@ -115,15 +115,15 @@ Test::TempDir::Handle - A handle for managing a temporary directory root.
 
 =head1 SYNOPSIS
 
-	use Test::TempDir::Handle;
+    use Test::TempDir::Handle;
 
-	my $h = Test::TempDir::Handle->new( dir => dir("t/tmp") );
+    my $h = Test::TempDir::Handle->new( dir => dir("t/tmp") );
 
-	$h->empty;
+    $h->empty;
 
-	# ...
+    # ...
 
-	$h->cleanup; # will delete on success by default
+    $h->cleanup; # will delete on success by default
 
 =head1 DESCRIPTION
 

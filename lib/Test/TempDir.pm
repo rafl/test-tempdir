@@ -8,10 +8,10 @@ use File::Temp ();
 use Test::TempDir::Factory;
 
 use Sub::Exporter -setup => {
-	exports => [qw(temp_root tempdir tempfile scratch)],
-	groups => {
-		default => [qw(temp_root tempdir tempfile)],
-	},
+    exports => [qw(temp_root tempdir tempfile scratch)],
+    groups => {
+        default => [qw(temp_root tempdir tempfile)],
+    },
 };
 
 our ( $factory, $dir );
@@ -25,11 +25,11 @@ sub temp_root () { _dir->dir }
 
 sub _temp_args { DIR => temp_root()->stringify, CLEANUP => 0 }
 sub _template_args {
-	if ( @_ % 2 == 0 ) {
-		return ( _temp_args, @_ );
-	} else {
-		return ( $_[0], _temp_args, @_[1 .. $#_] );
-	}
+    if ( @_ % 2 == 0 ) {
+        return ( _temp_args, @_ );
+    } else {
+        return ( $_[0], _temp_args, @_[1 .. $#_] );
+    }
 }
 
 sub tempdir { File::Temp::tempdir( _template_args(@_) ) }
@@ -37,8 +37,8 @@ sub tempdir { File::Temp::tempdir( _template_args(@_) ) }
 sub tempfile { File::Temp::tempfile( _template_args(@_) ) }
 
 sub scratch {
-	require Directory::Scratch;
-	Directory::Scratch->new( _temp_args, @_ );
+    require Directory::Scratch;
+    Directory::Scratch->new( _temp_args, @_ );
 }
 
 
@@ -54,13 +54,13 @@ Test::TempDir - Temporary files support for testing.
 
 =head1 SYNOPSIS
 
-	use Test::TempDir;
+    use Test::TempDir;
 
-	my $test_tempdir = temp_root();
+    my $test_tempdir = temp_root();
 
-	my ( $fh, $file ) = tempfile();
+    my ( $fh, $file ) = tempfile();
 
-	my $directory_scratch_obj = scratch();
+    my $directory_scratch_obj = scratch();
 
 =head1 DESCRIPTION
 
@@ -140,8 +140,8 @@ Yuval Kogman E<lt>nothingmuch@woobling.orgE<gt>
 
 =head1 COPYRIGHT
 
-	Copyright (c) 2008 Yuval Kogman. All rights reserved
-	This program is free software; you can redistribute
-	it and/or modify it under the same terms as Perl itself.
+    Copyright (c) 2008 Yuval Kogman. All rights reserved
+    This program is free software; you can redistribute
+    it and/or modify it under the same terms as Perl itself.
 
 =cut
