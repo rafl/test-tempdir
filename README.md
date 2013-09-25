@@ -4,13 +4,13 @@ Test::TempDir - Temporary files support for testing.
 
 # SYNOPSIS
 
-	use Test::TempDir;
+    use Test::TempDir;
 
-	my $test_tempdir = temp_root();
+    my $test_tempdir = temp_root();
 
-	my ( $fh, $file ) = tempfile();
+    my ( $fh, $file ) = tempfile();
 
-	my $directory_scratch_obj = scratch();
+    my $directory_scratch_obj = scratch();
 
 # DESCRIPTION
 
@@ -64,6 +64,6 @@ Yuval Kogman <nothingmuch@woobling.org>
 
 # COPYRIGHT
 
-	Copyright (c) 2008 Yuval Kogman. All rights reserved
-	This program is free software; you can redistribute
-	it and/or modify it under the same terms as Perl itself.
+    Copyright (c) 2008 Yuval Kogman. All rights reserved
+    This program is free software; you can redistribute
+    it and/or modify it under the same terms as Perl itself.
