@@ -2,18 +2,18 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
-0.08      2013-09-25 02:21:17Z (Karen Etheridge)
+0.08   2013-09-25 02:21:17Z
   - re-release with fixed compile test
 
-0.07      2013-09-12 05:13:09Z (Karen Etheridge)
+0.07   2013-09-12 05:13:09Z
   - fixed test error from last release when Directory::Scratch is not
     installed
 
-0.06      2013-09-12 00:22:49Z (Karen Etheridge)
+0.06   2013-09-12 00:22:49Z
   - fixed enum declaration, as per deprecations in Moose-2.1100
   - converted to Dist::Zilla
 
-0.05   2009-08-11 01:57:18 +0200
+0.05   2009-08-10 23:57:18Z
   - Look! A changelog! This wasn't too hard, was it? :-)
   - Allow setting the default for Test::TempDir::Factory's use_subdir using the
     environment variable TEST_TEMPDIR_USE_SUBDIR.
