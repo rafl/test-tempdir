@@ -1,3 +1,6 @@
+/.ackrc
 /.build/
-!.gitignore
-/Test-TempDir-*
+!/.gitignore
+/.latest
+/Test-TempDir-*/
+/Test-TempDir-*.tar.gz
