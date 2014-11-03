@@ -1,4 +1,5 @@
 package Test::TempDir::Handle;
+# ABSTRACT: A handle for managing a temporary directory root
 
 use Moose;
 use MooseX::Types::Path::Class qw(Dir);
@@ -109,10 +110,6 @@ __END__
 
 =pod
 
-=head1 NAME
-
-Test::TempDir::Handle - A handle for managing a temporary directory root.
-
 =head1 SYNOPSIS
 
     use Test::TempDir::Handle;
@@ -130,8 +127,6 @@ Test::TempDir::Handle - A handle for managing a temporary directory root.
 This class manages a temporary directory.
 
 =head1 ATTRIBUTES
-
-=over 4
 
 =head2 C<dir>
 

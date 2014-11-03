@@ -1,6 +1,7 @@
 use strict;
 use warnings;
 package Test::TempDir;
+# ABSTRACT: Temporary files support for testing
 
 use File::Temp ();
 
@@ -46,10 +47,6 @@ __PACKAGE__
 __END__
 
 =pod
-
-=head1 NAME
-
-Test::TempDir - Temporary files support for testing.
 
 =head1 SYNOPSIS
 
@@ -122,21 +119,9 @@ options as C<tempfile> and C<tempdir>.
 
 =head1 SEE ALSO
 
-L<File::Temp>, L<Directory::Scratch>, L<Path::Class>
-
-=head1 VERSION CONTROL
-
-This module is maintained using Git. You can get the latest version from
-L<git://github.com/nothingmuch/test-tempdir.git>.
-
-=head1 AUTHOR
-
-Yuval Kogman E<lt>nothingmuch@woobling.orgE<gt>
-
-=head1 COPYRIGHT
-
-    Copyright (c) 2008 Yuval Kogman. All rights reserved
-    This program is free software; you can redistribute
-    it and/or modify it under the same terms as Perl itself.
+=for :list
+* L<File::Temp>,
+* L<Directory::Scratch>
+* L<Path::Class>
 
 =cut

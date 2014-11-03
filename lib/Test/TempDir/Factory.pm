@@ -1,4 +1,5 @@
 package Test::TempDir::Factory;
+# ABSTRACT: A factory for creating L<Test::TempDir::Handle> objects
 
 use Moose;
 use Carp qw(croak carp);
@@ -197,11 +198,6 @@ __PACKAGE__
 __END__
 
 =pod
-
-=head1 NAME
-
-Test::TempDir::Factory - A factory for creating L<Test::TempDir::Handle>
-objects.
 
 =head1 SYNOPSIS
 
