@@ -100,15 +100,13 @@ within C<temp_root>, in order to aid in debugging of failed tests.
 
 =head1 EXPORTS
 
-=over 4
-
-=item C<temp_root>
+=head2 C<temp_root>
 
 The root of the temporary stuff.
 
-=item C<tempfile>
+=head2 C<tempfile>
 
-=item C<tempdir>
+=head2 C<tempdir>
 
 Wrappers for the L<File::Temp> functions of the same name.
 
@@ -117,12 +115,10 @@ Wrappers for the L<File::Temp> functions of the same name.
 The default options are changed to use C<temp_root> for C<DIR> and disable
 C<CLEANUP>, but these are overridable.
 
-=item C<scratch>
+=head2 C<scratch>
 
 Loads L<Directory::Scratch> and instantiates a new one, with the same default
 options as C<tempfile> and C<tempdir>.
-
-=back
 
 =head1 SEE ALSO
 

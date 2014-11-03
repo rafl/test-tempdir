@@ -133,47 +133,39 @@ This class manages a temporary directory.
 
 =over 4
 
-=item C<dir>
+=head2 C<dir>
 
 The L<Path::Class::Dir> that is being managed.
 
-=item C<lock>
+=head2 C<lock>
 
 An optional lock object (L<File::NFSLock>). Just kept around for reference counting.
 
-=item C<cleanup_policy>
+=head2 C<cleanup_policy>
 
 One of C<success>, C<always> or C<never>.
 
 C<success> means that C<cleanup> deletes only if C<test_builder> says the tests
 have passed.
 
-=item C<test_builder>
+=head2 C<test_builder>
 
 The L<Test::Builder> singleton.
 
-=back
-
 =head1 METHODS
 
-=over 4
-
-=item C<empty>
+=head2 C<empty>
 
 Cleans out the directory but doesn't delete it.
 
-=item C<delete>
+=head2 C<delete>
 
 Cleans out the directory and removes it.
 
-=item C<cleanup>
+=head2 C<cleanup>
 
 Calls C<delete> if the C<cleanup_policy> dictates to do so.
 
 This is normally called automatically at destruction.
 
-=back
-
 =cut
-
-

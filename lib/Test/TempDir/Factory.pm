@@ -223,37 +223,35 @@ fallback logic.
 
 =head1 ATTRIBUTES
 
-=over 4
-
-=item C<lock>
+=head2 C<lock>
 
 Whether or not to enable locking.
 
 Defaults to true.
 
-=item C<lock_opts>
+=head2 C<lock_opts>
 
 A hash reference to pass to L<File::NFSLock>.
 
 Defaults to C<NONBLOCKING>
 
-=item C<lock_attempts>
+=head2 C<lock_attempts>
 
 How many times to try to create and lock a directory.
 
 Defaults to 2.
 
-=item C<dir_name>
+=head2 C<dir_name>
 
 The directory under C<t_dir> to use.
 
 Defaults to C<tmp>
 
-=item C<t_dir>
+=head2 C<t_dir>
 
 Defaults to C<t>
 
-=item C<use_subdir>
+=head2 C<use_subdir>
 
 Whether to always use a temporary subdirectory under the temporary root.
 
@@ -263,15 +261,15 @@ When disabled, C<t/tmp> will be used directly as C<temp_root>.
 
 Defaults to true.
 
-=item C<subdir_template>
+=head2 C<subdir_template>
 
 The template to pass to C<tempdir>. Defaults to C<File::Temp::TEMPXXX>.
 
-=item C<handle_class>
+=head2 C<handle_class>
 
 Defaults to L<Test::TempDir::Handle>.
 
-=item C<verbose>
+=head2 C<verbose>
 
 Whether or not to C<carp> diagnostics when falling back.
 
@@ -279,16 +277,10 @@ If you subclass this factory and add a C<logger> method a la L<MooseX::Logger>
 then this parameter is ignored and all messages will be C<warn>ed on the
 logger.
 
-=back
-
 =head1 METHODS
 
-=over 4
-
-=item C<create>
+=head2 C<create>
 
 Create a L<Test::TempDir::Handle> object with a proper C<dir> attribute.
-
-=back
 
 =cut
