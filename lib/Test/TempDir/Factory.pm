@@ -1,6 +1,6 @@
 package Test::TempDir::Factory;
-use Moose;
 
+use Moose;
 use Carp qw(croak carp);
 use File::Spec;
 use File::Temp;

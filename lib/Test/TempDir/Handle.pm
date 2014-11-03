@@ -1,6 +1,6 @@
 package Test::TempDir::Handle;
-use Moose;
 
+use Moose;
 use MooseX::Types::Path::Class qw(Dir);
 use Moose::Util::TypeConstraints;
 

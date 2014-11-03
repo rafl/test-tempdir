@@ -1,7 +1,6 @@
-package Test::TempDir;
-
 use strict;
 use warnings;
+package Test::TempDir;
 
 use File::Temp ();
 
