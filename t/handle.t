@@ -1,24 +1,20 @@
-#!/usr/bin/perl
-
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More 0.88;
 
 use Path::Class;
 use File::Temp qw(tempdir);
-use File::Path;
+use File::Path 2.04;    # for reliable keep_root
 
 my $tmp;
 
 BEGIN {
-	use File::Spec;
+    use File::Spec;
 
-	plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
-	$tmp = dir( tempdir( CLEANUP => 1 ) );
-	plan skip_all => "couldn't create temp dir" unless -d $tmp && -w $tmp;
-
-	plan 'no_plan';
+    plan skip_all => "No writable temp dir" unless grep { -d && -w } File::Spec->tmpdir;
+    $tmp = dir( tempdir( CLEANUP => 1 ) );
+    plan skip_all => "couldn't create temp dir" unless -d $tmp && -w $tmp;
 }
 
 use ok 'Test::TempDir::Handle';
@@ -63,3 +59,4 @@ $h->cleanup;
 
 ok( not(-d $tmp), "dir removed by delete" );
 
+done_testing;
