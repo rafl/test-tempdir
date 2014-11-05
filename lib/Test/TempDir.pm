@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Test::TempDir;
-# ABSTRACT: Temporary files support for testing
+# ABSTRACT: (DEPRECATED) Temporary files support for testing
 
 use File::Temp ();
 
@@ -47,6 +47,19 @@ __PACKAGE__
 __END__
 
 =pod
+
+=begin :prelude
+
+=head1 DEPRECATION NOTICE
+
+There have been numerous issues found with this module, particularly with its
+use of locks (unreliable, may result in your entire C<$TMPDIR> being deleted)
+and MSWin32 compatibility. As well, it uses Moose, which is nowadays considered
+to be heavier than necessary.
+
+L<Test::TempDir::Tiny> was written as a replacement. Please use it instead!
+
+=end :prelude
 
 =head1 SYNOPSIS
 
