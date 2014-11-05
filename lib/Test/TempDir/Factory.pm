@@ -11,7 +11,7 @@ use MooseX::Types::Path::Class qw(Dir);
 
 use Test::TempDir::Handle;
 
-use namespace::autoclean;
+use namespace::autoclean 0.08;
 
 has lock => (
     isa => "Bool",

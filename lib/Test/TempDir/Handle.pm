@@ -5,7 +5,7 @@ use Moose;
 use MooseX::Types::Path::Class qw(Dir);
 use Moose::Util::TypeConstraints;
 
-use namespace::autoclean;
+use namespace::autoclean 0.08;
 
 has dir => (
     isa => Dir,
